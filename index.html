@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Project tracking intro component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body{
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+    }
+    .flex{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+    }
+    .harmbuger{
+      display: none;
+    }
+    
+    .item-list a{
+      text-decoration: none;
+      margin: 1.4rem;
+      color: black;
+    }
+    .item-list :hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .item-list :nth-child(4){
+      margin: 4.4rem;
+      color:hsl(231, 7%, 65%);
+    }
+    header{
+      margin-top: 5rem;
+    }
+    .flex-1{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin: 40px;
+    }
+    .item-new{
+      background-color: black;
+      color: white;
+      border-radius: 20px;
+      padding: 5px;
+      margin:1.0rem;
+    }
+    .text h3{
+      color: hsl(231, 7%, 65%);
+    }
+    .text h1{
+      font-size: 4rem;
+      width: 40rem;
+      margin-top: 20px;
+    }
+    .text p{
+      width: 16rem;
+      margin-top:20px;
+      color: hsl(230, 11%, 40%);
+      font-weight: 100;
+      line-height: 20px;
+    }
+    .pc img{
+      position: relative;
+      left: 15rem;
+    }
+    .btn{
+      width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: hsl(0, 100%, 68%);
+      color: white;
+      border: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .btn:hover{
+      background-color:#d843155c;
+      transition: .4s;
+      cursor: pointer;
+    }
+    span{
+      margin-left: 20px;
+      color: hsl(231, 7%, 65%);
+    }
+    
+    @media (width < 600px) {
+    body{
+      overflow: hidden auto;
+    }
+    .harmbuger{
+      display: block;
+    }
+    .icon-menu{
+      display: block;
+      cursor: pointer;
+    }
+      .flex-1{
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .pc img{
+        width: 30rem;
+        position: relative;
+        left:8rem;
+      }
+     .text{
+      margin: 50px;
+     }
+      .text h1{
+        font-size: 3rem;
+        width: 26rem;
+      }
+      
+    
+
+        .hamburger {
+            position: relative;
+        }
+
+        .icon-menu,
+        .icon-close {
+            cursor: pointer;
+        }
+
+        .item-list {
+            width: 400px;
+            height: 370px;
+            background-color: white;
+            position: absolute;
+            top: 7rem;
+            right: 2rem;
+            z-index: 1;
+            border: 1px solid black;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .item-list.show {
+            display: flex;
+        }
+
+        .item-list a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+     
+  
+
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="flex">
+      <img src="images/logo.svg" alt="icon-logo">
+      <div class="harmbuger" id="menus">
+          <img src="images/icon-hamburger.svg" alt="menu" class="icon-menu" id="hamburger_icon">
+          <img src="images/icon-close.svg" alt="close" id="close_icon" class="close">
+      </div>
+      <div class="item-list" id="open">
+          <a href="#">PRODUCT</a>
+          <a href="#">FEATURES</a>
+          <a href="#">PRICING</a>
+          <a href="#">LOGIN</a>
+      </div>
+  </div>
+  </nav>
+  <header>
+    <div class="flex-1">
+      <div class="text">
+        <h3> <span class="item-new">NEW</span>   Monograph Dashboard </h3>
+        <h1>Powerful insights into your team</h1>
+          <p> Project planning and time tracking for agile teams</p>
+          <button class="btn">SCHEDULE A DEMO</button>
+          <span>to see a live preview</span>
+      </div>
+      <div class="pc">
+        <img src="images/illustration-devices.svg" alt="pc-device">
+      </div>
+    </div>
+  </header>
+  <script>
+    const menus = document.getElementById("menus");
+    const hamburger_icon = document.getElementById("hamburger_icon");
+    const close_icon = document.getElementById("close_icon");
+    const open = document.getElementById("open");
+
+    menus.addEventListener("click", function () {
+        if (open.classList.contains("show")) {
+            open.classList.remove("show");
+            hamburger_icon.style.display = "block";
+            close_icon.style.display = "none";
+        } else {
+            open.classList.add("show");
+            hamburger_icon.style.display = "none";
+            close_icon.style.display = "block";
+        }
+    });
+  </script>  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">SHIVAM KUMAR</a>.
+    </p>
+  </footer>
+</body>
+</html>
